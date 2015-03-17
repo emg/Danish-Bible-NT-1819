@@ -7,7 +7,7 @@ MQL = /usr/bin/mql
 
 CLEANFILES = *~ *.pyc *.pyo \
              MQL/NT1819.mql \
-             DB/nt1819.sqlite3 \
+             EmdrosDB/nt1819.sqlite3 \
              MQL/*~ BibleWorks/*~
 
 
@@ -42,11 +42,11 @@ BibleWorks/DA_NT1819_bibleworks.txt: OSIS/DA_NT1819.OSIS.xml osis2bibleworks.py
 
 
 # Create an SQLite3 database in Emdros format from the MQL
-db3: DB/nt1819.sqlite3
+db3: EmdrosDB/nt1819.sqlite3
 
-DB/nt1819.sqlite3: MQL/NT1819.mql MQL/osis_schema.mql
-	-echo "DROP DATABASE '"${@}"' GO" | $(MQL) -b 3
-	echo "CREATE DATABASE '"${@}"' GO" | $(MQL) -b 3
+EmdrosDB/nt1819.sqlite3: MQL/NT1819.mql MQL/osis_schema.mql
+	-echo "DROP DATABASE '${@}' GO" | $(MQL) -b 3
+	echo "CREATE DATABASE '${@}' GO" | $(MQL) -b 3
 	$(MQL) -b 3 -d $@ MQL/osis_schema.mql
 	$(MQL) -b 3 -d $@ $<
 	echo "CREATE OBJECT FROM MONADS={1-4000000}[db dbname:='DANT1819';friendly_dbname:='Dansk NT1819';bible_parts:=(NT);language:=danish;dbtype:=bible;]" | $(MQL) -b 3 -n -d $@

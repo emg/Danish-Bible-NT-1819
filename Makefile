@@ -8,6 +8,7 @@ MQL = /usr/bin/mql
 CLEANFILES = *~ *.pyc *.pyo \
              MQL/NT1819.mql \
              DB/nt1819.sqlite3 \
+             MQL/*~ BibleWorks/*~
 
 
 all: MQL/NT1819.mql BibleWorks/DA_NT1819_bibleworks.txt

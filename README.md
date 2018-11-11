@@ -3,7 +3,7 @@
 ## What is this?
 
 This is the New Testament in Danish, authorized by King Frederik the
-7th in 1819 and published by the Danish Bible Society in the same
+6th in 1819 and published by the Danish Bible Society in the same
 year.
 
 ## License?
